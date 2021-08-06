@@ -12,6 +12,9 @@
 		B1ACFF4A26BD0B4F007D3F37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1ACFF4926BD0B4F007D3F37 /* Assets.xcassets */; };
 		B1ACFF4D26BD0B4F007D3F37 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1ACFF4C26BD0B4F007D3F37 /* Preview Assets.xcassets */; };
 		B1ACFF5A26BD0C7E007D3F37 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ACFF5926BD0C7E007D3F37 /* ContentModel.swift */; };
+		B1ACFF6526BDC819007D3F37 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = B1ACFF6326BDC819007D3F37 /* data.json */; };
+		B1ACFF6626BDC819007D3F37 /* style.html in Resources */ = {isa = PBXBuildFile; fileRef = B1ACFF6426BDC819007D3F37 /* style.html */; };
+		B1ACFF6826BDCA0A007D3F37 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1ACFF6726BDCA0A007D3F37 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		B1ACFF4C26BD0B4F007D3F37 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B1ACFF4E26BD0B4F007D3F37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1ACFF5926BD0C7E007D3F37 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		B1ACFF6326BDC819007D3F37 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		B1ACFF6426BDC819007D3F37 /* style.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = style.html; sourceTree = "<group>"; };
+		B1ACFF6726BDCA0A007D3F37 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		B1ACFF5626BD0C01007D3F37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B1ACFF6726BDCA0A007D3F37 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -101,6 +108,8 @@
 		B1ACFF5726BD0C07007D3F37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1ACFF6326BDC819007D3F37 /* data.json */,
+				B1ACFF6426BDC819007D3F37 /* style.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -170,6 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1ACFF4D26BD0B4F007D3F37 /* Preview Assets.xcassets in Resources */,
+				B1ACFF6526BDC819007D3F37 /* data.json in Resources */,
+				B1ACFF6626BDC819007D3F37 /* style.html in Resources */,
 				B1ACFF4A26BD0B4F007D3F37 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +195,7 @@
 				B1ACFF4826BD0B4D007D3F37 /* HomeView.swift in Sources */,
 				B1ACFF4626BD0B4D007D3F37 /* LearningApp.swift in Sources */,
 				B1ACFF5A26BD0C7E007D3F37 /* ContentModel.swift in Sources */,
+				B1ACFF6826BDCA0A007D3F37 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
