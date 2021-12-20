@@ -13,8 +13,26 @@ class ContentModel: ObservableObject{
     
     @Published var modules = [Module]()
     
-    var styleData: Data?
+    //keep state of things
     
+    
+    //current lesson explanatio
+    
+    @Published var lessonText = NSAttributedString()
+    
+    
+    @Published var currentModule: Module?
+    
+    @Published var currentModuleIndex = 0
+    @Published var currentLesson: Lessons?
+    var currentLessonIndex = 0
+    
+    var styleData: Data?
+    @Published var currentTestSelected:Int?
+    @Published var currentQuestion: Question?
+    @Published var currentQuestionIndex:Int?
+    //Current selected content
+    @Published var currentContentSelected:Int?
     
     init(){
         
@@ -70,6 +88,114 @@ class ContentModel: ObservableObject{
         
         
         
+    }
+    
+    
+    
+    //MARK: Data Methods
+    
+    //MARK: Module Nav Methods
+    func beginModule(_ moduleid:Int){
+    
+        //find the index for module id
+        
+        for index in 0...modules.count{
+            
+            if(modules[index].id == moduleid){
+                
+                currentModuleIndex = index
+                break
+            }
+            
+        }
+        
+        currentModule = modules[currentModuleIndex]
+    }
+    
+    
+    func beginLesson(_ lessonIndex:Int){
+        
+        //check that lesson index is within range of module lesson
+        
+        if(lessonIndex < currentModule!.content.lessons.count){
+            
+            currentLessonIndex = lessonIndex
+        }
+        else{
+            
+            currentLessonIndex = 0
+        }
+        
+        currentLesson = currentModule!.content.lessons[currentLessonIndex]
+        //set current lesson
+        lessonText = addStyling(currentLesson!.explanation)
+    }
+    
+    
+    
+    //advance to the next lesson
+    func nextLesson(){
+        currentLessonIndex+=1
+        
+        if currentLessonIndex < currentModule!.content.lessons.count{
+            
+            currentLesson = currentModule!.content.lessons[currentLessonIndex]
+            lessonText = addStyling(currentLesson!.explanation)
+        }
+        
+        else{
+            
+            currentLesson = nil
+            currentLessonIndex = 0
+            
+            
+        }
+    }
+    
+    
+    func hasNextLesson() -> Bool{
+        
+       
+        return currentLessonIndex+1 < currentModule!.content.lessons.count
+        
+    }
+    
+    func beginTest(_ moduleId:Int){
+        
+        //set module
+        
+        beginModule(moduleId)
+        
+        currentQuestionIndex = 0
+        
+        if(currentModule?.test.questions.count ?? 0 > 0){
+            
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex!]
+            
+            lessonText = addStyling(currentQuestion!.content)
+        }
+        
+    }
+    
+    
+    private func addStyling(_ htmlString: String) -> NSAttributedString{
+        var resultString  = NSAttributedString()
+        
+        var data = Data()
+        
+        if(styleData != nil){
+            data.append(self.styleData!)
+
+        }
+        
+        data.append(Data(htmlString.utf8))
+        
+        if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+           resultString = attributedString
+        }
+        
+        
+        return resultString
     }
     
 }
